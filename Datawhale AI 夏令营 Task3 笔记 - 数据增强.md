@@ -71,10 +71,10 @@ dataset.transform = transforms.Compose([
         return lam * criterion(pred, targets_a) + (1 - lam) * criterion(pred, targets_b)
         
     def train():
-    	# prepare the data, model, etc.
-    	inputs, targets = inputs.to(device), targets.to(device)
-    	inputs, targets_a, targets_b, lam = mixup(inputs, targets)
-    	pred = model(inputs)
+        # prepare the data, model, etc.
+        inputs, targets = inputs.to(device), targets.to(device)
+        inputs, targets_a, targets_b, lam = mixup(inputs, targets)
+        pred = model(inputs)
         loss = mixup_criterion(criterion, pred, targets_a, targets_b, lam)
         # continue training step
     ```
