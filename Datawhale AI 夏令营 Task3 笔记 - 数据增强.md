@@ -61,9 +61,9 @@ dataset.transform = transforms.Compose([
 
     ```python
     def mixup(inputs, targets, alpha=1.0):
-    	lam = np.random.beta(alpha, alpha)
-    	index = torch.randperm(len(inputs))
-    	mixed_inputs = lam * inputs + (1 - lam) * inputs[index, :]
+        lam = np.random.beta(alpha, alpha)
+        index = torch.randperm(len(inputs))
+        mixed_inputs = lam * inputs + (1 - lam) * inputs[index, :]
         targets_a, targets_b = targets, targets[index]
         return mixed_inputs, targets_a, targets_b, lam
         
